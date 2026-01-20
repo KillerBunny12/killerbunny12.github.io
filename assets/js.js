@@ -36,18 +36,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let indexNo = 0;
   
     heart.addEventListener('click', () => {
-        // AUDIO — todo directo en el click
-        music.muted = false;
-        music.volume = 0.15; // volumen inicial bajo
-        music.play().catch(e => console.log(e));
+        if (!music.src) {
+          music.src = "assets/music.mp3";
+        }
+      
+        music.volume = 0;
+        music.play().catch(err => {
+          console.log("Audio bloqueado:", err);
+        });
+      
+        let vol = 0;
+        const fadeIn = setInterval(() => {
+          if (vol < 0.15) {
+            vol += 0.005;
+            music.volume = vol;
+          } else {
+            clearInterval(fadeIn);
+          }
+        }, 180);
       
         card.classList.add('fade-out');
-      
-        card.addEventListener('transitionend', () => {
-          card.style.display = 'none';
-          pregunta.classList.add('show');
-          iniciarFrases();
-        }, { once: true });
       });
   
     function iniciarFrases() {
