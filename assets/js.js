@@ -36,28 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let indexNo = 0;
   
     heart.addEventListener('click', () => {
-        const music = document.getElementById('bgMusic');
-
-music.volume = 0;
-music.play();
-
-let vol = 0;
-const fadeIn = setInterval(() => {
-  if (vol < 0.15) {
-    vol += 0.005;
-    music.volume = vol;
-  } else {
-    clearInterval(fadeIn);
-  }
-}, 180);
-      card.classList.add('fade-out');
-  
-      card.addEventListener('transitionend', () => {
-        card.style.display = 'none';
-        pregunta.classList.add('show');
-        iniciarFrases();
-      }, { once: true });
-    });
+        // AUDIO — todo directo en el click
+        music.muted = false;
+        music.volume = 0.15; // volumen inicial bajo
+        music.play().catch(e => console.log(e));
+      
+        card.classList.add('fade-out');
+      
+        card.addEventListener('transitionend', () => {
+          card.style.display = 'none';
+          pregunta.classList.add('show');
+          iniciarFrases();
+        }, { once: true });
+      });
   
     function iniciarFrases() {
       let fraseIndex = 0;
