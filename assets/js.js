@@ -51,11 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
       card.classList.add('fade-out');
   
-      card.addEventListener('transitionend', () => {
-        card.style.display = 'none';
-        pregunta.classList.add('show');
-        iniciarFrases(); // 🔥 FALTABA ESTO
-      }, { once: true });
+      card.classList.add('fade-out');
+
+setTimeout(() => {
+  card.style.display = 'none';
+  pregunta.classList.add('show');
+  iniciarFrases();
+}, 3000); // mismo tiempo que el CSS
     });
   
     /* ---------- FRASES ---------- */
