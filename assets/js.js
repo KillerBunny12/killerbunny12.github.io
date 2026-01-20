@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSi = document.getElementById('btnSi');
     const btnNo = document.getElementById('btnNo');
     const finalDiv = document.querySelector('.final');
+    const music = document.getElementById('bgMusic');
   
 
     botones.style.opacity = '0';
@@ -35,6 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let indexNo = 0;
   
     heart.addEventListener('click', () => {
+        const music = document.getElementById('bgMusic');
+
+music.volume = 0;
+music.play();
+
+let vol = 0;
+const fadeIn = setInterval(() => {
+  if (vol < 0.15) {
+    vol += 0.005;
+    music.volume = vol;
+  } else {
+    clearInterval(fadeIn);
+  }
+}, 180);
       card.classList.add('fade-out');
   
       card.addEventListener('transitionend', () => {
@@ -94,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       escribirFrase();
     }
   
-    /* ---------- BOTÓN NO ---------- */
+   
     btnNo.addEventListener('click', () => {
       escalaSi += 0.35;
       btnSi.style.transform = `scale(${escalaSi})`;
@@ -111,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
-    /* ---------- BOTÓN SI ---------- */
+   
     btnSi.addEventListener('click', () => {
       pregunta.style.opacity = '0';
   
