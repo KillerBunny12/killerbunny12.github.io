@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNo = document.getElementById('btnNo');
     const finalDiv = document.querySelector('.final');
     const music = document.getElementById('bgMusic');
+    const humorImg = document.getElementById('humorImg');
   
-
     botones.style.opacity = '0';
     botones.style.visibility = 'hidden';
   
@@ -21,43 +21,44 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
   
     const frasesNo = [
-      "Segura?",
-      "En serio?",
-      "Positiva?",
-      "Solo piensalo",
-      "Si dices que no estare triste :c",
+      "¿Segura?",
+      "¿En serio?",
+      "¿Positiva?",
+      "Solo piénsalo",
+      "Si dices que no estaré triste :c",
       "Pipipi",
-      "Le dire a Sombra",
+      "Le diré a Sombra",
       "Y a Coco"
-
     ];
   
     let escalaSi = 1;
     let indexNo = 0;
   
+    /* ---------- CLICK CORAZÓN ---------- */
     heart.addEventListener('click', () => {
-        if (!music.src) {
-          music.src = "assets/music.mp3";
-        }
-      
-        music.volume = 0;
-        music.play().catch(err => {
-          console.log("Audio bloqueado:", err);
-        });
-      
-        let vol = 0;
-        const fadeIn = setInterval(() => {
-          if (vol < 0.15) {
-            vol += 0.005;
-            music.volume = vol;
-          } else {
-            clearInterval(fadeIn);
-          }
-        }, 180);
-      
-        card.classList.add('fade-out');
-      });
+      music.volume = 0;
+      music.play().catch(() => {});
   
+      let vol = 0;
+      const fadeIn = setInterval(() => {
+        if (vol < 0.15) {
+          vol += 0.005;
+          music.volume = vol;
+        } else {
+          clearInterval(fadeIn);
+        }
+      }, 180);
+  
+      card.classList.add('fade-out');
+  
+      card.addEventListener('transitionend', () => {
+        card.style.display = 'none';
+        pregunta.classList.add('show');
+        iniciarFrases(); // 🔥 FALTABA ESTO
+      }, { once: true });
+    });
+  
+    /* ---------- FRASES ---------- */
     function iniciarFrases() {
       let fraseIndex = 0;
       let letraIndex = 0;
@@ -68,6 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
           texto.textContent += frases[fraseIndex][letraIndex++];
           setTimeout(escribirFrase, 60);
         } else {
+  
+          // 👉 MOSTRAR IMAGEN SOLO EN ESTA FRASE
+          if (frases[fraseIndex] === "Sé que ya somos novios") {
+            humorImg.classList.add('show');
+  
+            setTimeout(() => {
+              humorImg.classList.remove('show');
+            }, 1500);
+          }
+  
           setTimeout(() => {
             texto.classList.add('fade-out');
   
@@ -108,15 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
       escribirFrase();
     }
   
-   
+    /* ---------- BOTÓN NO ---------- */
     btnNo.addEventListener('click', () => {
-      escalaSi += 0.35;
+      escalaSi += 0.45;
       btnSi.style.transform = `scale(${escalaSi})`;
   
       btnNo.textContent = frasesNo[indexNo];
       indexNo = (indexNo + 1) % frasesNo.length;
   
-      if (escalaSi >= 4) {
+      if (escalaSi >= 5) {
         btnSi.style.position = 'fixed';
         btnSi.style.top = '50%';
         btnSi.style.left = '50%';
@@ -125,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
-   
+    /* ---------- BOTÓN SÍ ---------- */
     btnSi.addEventListener('click', () => {
       pregunta.style.opacity = '0';
   

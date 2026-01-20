@@ -310,3 +310,15 @@
   .cuerpo {
     background-color: pink;
   }
+
+  #humorImg {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+    margin-top: 15px;
+  }
+  
+  #humorImg.show {
+    opacity: 1;
+    visibility: visible;
+  }

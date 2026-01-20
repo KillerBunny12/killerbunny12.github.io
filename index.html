@@ -12,7 +12,7 @@
 
 
 <body class="cuerpo">
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" preload="auto" loop>
         <source src="./assets/music.mp3" type="audio/mpeg">
     </audio>
     <div class="container">
@@ -30,6 +30,9 @@
 
             <div class="pregunta">
                     <h1 id="textoPregunta"></h1>
+                    <div class="media" id="humorImg">
+                        <img src="https://i.kym-cdn.com/photos/images/newsfeed/003/072/174/6fd.jpg" alt="humor">
+                      </div>
                     <div class="botones">
                         <button id="btnSi" class="btn btn-success me-2">Si</button>
                         <button id="btnNo" class="btn btn-danger">No</button>
