@@ -1,0 +1,312 @@
+.content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    
+}
+
+#card {
+    width: 0; 
+    height: 0; 
+    border-top: 100px solid #e8f4f8;
+    border-right: 170px solid #c1e1ec;
+    border-bottom: 100px solid #d4ebf2;
+    border-left: 170px solid #c1e1ec;
+    box-shadow: 10px 10px 5px #3793b2;
+    opacity: 1;
+    transition: opacity 3.0s ease;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+  .pregunta {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 3.0s ease;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  
+  /* contenido2 visible */
+  .pregunta.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #card.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .heart {
+    width: 32px; 
+    height: 32px; 
+    background-color: #ff1414;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: heartbeat 1.4s infinite; 
+  }
+  
+  .heart:before {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+  
+  .heart:after {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateX(-50%);
+    border-radius: 50%; 
+  }
+  
+  @keyframes heartbeat {
+    0% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+    25% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+    30% { transform: translate(-50%, -50%) rotate(45deg) scale(1.4); }
+    50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.2); }
+    70% { transform: translate(-50%, -50%) rotate(45deg) scale(1.4); }
+    100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+  }
+  
+  .heart1 {
+    width: 32px; 
+    height: 32px; 
+    background-color: #ff1414;
+    transform: translate(-50%, -160%) rotate(45deg); 
+  }
+  
+  .heart1:before {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+  
+  .heart1:after {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateX(-50%);
+    border-radius: 50%; 
+  }
+  
+  
+  .heart1 {
+    animation: heart1 2.5s ease-out 1s infinite; }
+  
+  @keyframes heart1 {
+    0% {transform: translateY(-200%) translateX(0) scale(0.25) rotate(45deg); opacity: 1;}
+   
+  100% {transform: translateY(-400%) translateX(0) scale(1) rotate(50deg); opacity: 0;}
+  }
+  
+  .heart2 {
+    width: 32px; 
+    height: 32px; 
+    background-color: #ff1414;
+    transform: translate(-50%, -250%) rotate(45deg); 
+  }
+  
+  .heart2:before {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+  
+  .heart2:after {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateX(-50%);
+    border-radius: 50%; 
+  }
+  
+  .heart2 {
+    animation: heart2 4s ease-out 1s infinite; }
+  
+  @keyframes heart2 {
+    0% {transform: translateY(-300%) translateX(-100%) scale(0.25) rotate(-20deg); opacity: 0.2;}
+   
+  100% {transform: translateY(-500%) translateX(-10%) scale(1) rotate(45deg); opacity: 0;}
+  }
+  
+  .heart3 {
+    width: 32px; 
+    height: 32px; 
+    background-color: #ff1414;
+    transform: translate(-50%, -350%) rotate(45deg); 
+  }
+  
+  .heart3:before {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+  
+  .heart3:after {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateX(-50%);
+    border-radius: 50%; 
+  }
+  
+  .heart3 {
+    animation: heart3 2s ease-out 1s infinite; }
+  
+  @keyframes heart3 {
+    0% {transform: translateY(-430%) translateX(-100%) scale(0.25) rotate(20deg); opacity: 0.2;}
+   
+  100% {transform: translateY(-650%) translateX(-10%) scale(1) rotate(60deg); opacity: 0;}
+  }
+  
+  .heart4 {
+    width: 32px; 
+    height: 32px; 
+    background-color: #ff1414;
+    transform: translate(-50%, -450%) rotate(45deg); 
+  }
+  
+  .heart4:before {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+  
+  .heart4:after {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ff1414; 
+    transform: translateX(-50%);
+    border-radius: 50%; 
+  }
+  
+  
+  .heart4 {
+    animation: heart4 2.3s ease-out 1s infinite; }
+  
+  @keyframes heart4 {
+    0% {transform: translateY(-450%) translateX(-100%) scale(0.25) rotate(45deg); opacity: 0.2;}
+   
+  100% {transform: translateY(-750%) translateX(-10%) scale(1) rotate(80deg); opacity: 0;}
+  }
+
+
+  .botones {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .botones.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #textoPregunta {
+    transition: opacity 2.0s ease;
+    opacity: 1;
+  }
+
+  #textoPregunta.fade {
+    opacity: 0;
+  }
+
+  #textoPregunta.fade-out {
+    opacity: 0;
+  }
+
+  .media {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .media img {
+    max-width: 250px;
+    border-radius: 10px;
+  }
+  
+  #btnSi {
+    transition: transform 0.4s ease;
+    z-index: 10;
+  }
+  
+  .final {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+    text-align: center;
+  }
+  
+  .final.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cuerpo {
+    background-color: pink;
+  }
